@@ -1,0 +1,14 @@
+{
+    "env": {
+        "MONGO_ATLAS_PW": "aA9830179097",
+        "JWT_KEY": "secret",
+        "GOOGLE_MAPS_API_KEY": "AIzaSyBFRYUS7brPnKscuDnK310Lx0jwrW-x9Us", 
+        "RAZORPAY_API_KEY": "rzp_test_O80L6RKtjTIrBK",
+        "RAZORPAY_KEY_SECRET": "KfwlJkvwMfx8NY4njoHSZTRC",
+        "GETTO_SERVICE_CHARGE_CALC": 0.85,
+        "GETTO_SERVICE_CHARGE": "15",
+        "TWILIO_ACCOUNT_SID": "AC7ea9b117cbf932c1e4a833e09e001825",
+        "TWILIO_AUTH_TOKEN": "a469d73326de6eb6a9c80015b3534488",
+        "TWILIO_VERIFY_SERVICEID": "VA0e78bafaf3cc6d9a9e69024c2c4d9642"
+    }
+}
