@@ -201,7 +201,10 @@ router.post('/product-categories', (req, res, next) => {
 
 router.post('/search', (req, res, next) => {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    const query = { $or: [{name: regex },{product_category: regex},{core_type: regex},{sub_category: regex}] };
+    const query = {
+        listing: true,
+        $or: [{name: regex },{product_category: regex},{core_type: regex},{sub_category: regex}] 
+    };
     
     Product
     .find(query)
@@ -223,8 +226,11 @@ router.post('/search', (req, res, next) => {
 
 router.post('/autocomplete', (req, res, next) => {
     var regex = RegExp(req.query['term'], 'i');
-    const query = { $or: [{name: regex },{product_category: regex},{core_type: regex},{sub_category: regex}]};
-
+    const query = {
+        listing: true,
+        $or: [{name: regex },{product_category: regex},{core_type: regex},{sub_category: regex}] 
+    };
+    
     Product
     .find(query)
     .sort({"updated_at": -1})
