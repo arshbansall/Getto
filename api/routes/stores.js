@@ -29,6 +29,7 @@ router.post('/verifyOTP',otpFunctions.verifyOTP, (req, res, next) => {
 });
 
 router.get('/forgot', (req, res, next) => {
+    let i;
     const data = req.query.forgotdata;
     const phone = Number.isNaN(parseInt(data, 10)) ? "123" : parseInt(data, 10);
     const query = { $or : [{email: data}, {"owner.contact_number": phone}]};
