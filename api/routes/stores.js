@@ -1,7 +1,7 @@
 //Add monthly revenue
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose'); //Checking and testing Git 
+const mongoose = require('mongoose'); //Checking and testing Git part 2
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
