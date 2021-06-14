@@ -55,6 +55,10 @@ const storeSchema = mongoose.Schema({
     total_revenue: {type: Number},
     payout_method: {type: String, enum: ["UPI", "IMPS"]},
 
+    working_days: {type: [String], required: true},
+    opening_time: {type: [String], required: true},
+    closing_time: {type: [String], required: true},
+
     bank_details: {type: Object},
 
     daily_rs_data: {type: [{

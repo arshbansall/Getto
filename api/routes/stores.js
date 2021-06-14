@@ -100,6 +100,10 @@ router.post('/registerstore', otpFunctions.verifyOTP, geocoding, addStoreToRazor
 
                         bank_details: data.bank_details,
 
+                        opening_time: data.opening_time,
+                        closing_time: data.closing_time,
+                        working_days: data.working_days,
+
                         store_contact_number: data.store_contact_number,
                         total_sales: data.total_sales,
                         total_revenue: data.total_revenue,
@@ -138,6 +142,7 @@ router.post('/support', (req, res, next) => {
 router.patch('/:storeId', geocoding, updateRazorpayContact, (req, res, next) => { 
     const id = req.params.storeId;
     const updateOps = req.parsedUpdateData; //JSON.parse(req.body); 
+    console.log(updateOps);
 
     if(req.coordinates != null) {
         updateOps['location']['address_coordinates'] = {"type": "Point", "coordinates": req.coordinates};
@@ -213,6 +218,9 @@ router.post('/logintostore', (req, res, next) => {
                     location: store[0].location,
                     payout_method: store[0].payout_method,
                     owner: store[0].owner,
+                    working_days: store[0].working_days,
+                    opening_time: store[0].opening_time,
+                    closing_time: store[0].closing_time,
                     device_token: store[0].device_token,
                     store_contact_number: store[0].store_contact_number,
                     total_sales: store[0].total_sales,

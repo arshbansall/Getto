@@ -1,12 +1,24 @@
 const fetch = require('node-fetch');
 const User = require('../models/user');
 const Store = require('../models/store');
+const getCurrentDay = require('../middleware/get-current-day');
 
 module.exports = async function getDeliveryTime(sellerID, userID) {
+
+    var currentDate = new Date();
+    var openingTime = new Date();
+    var closingTime = new Date();
+    var day = getCurrentDay(currentDate.getDay());
+
+    const store = await Store.findById(sellerID);
+    openingTime.setHours(store.opening_time[0], store.opening_time[1], 0);
+    closingTime.setHours(store.closing_time[0], store.closing_time[1], 0);
+
     if(userID.length <= 0) {
         return "User Location Not Available";
+    } else if(!store.working_days.includes(day) || currentDate < openingTime || currentDate > closingTime) {
+        return "Sonic Delivery Currently Unavailable"; 
     } else {
-        const store = await Store.findById(sellerID);
         const user = await User.findById(userID);
 
         const storeLongitude = store.location.address_coordinates.coordinates[0];
