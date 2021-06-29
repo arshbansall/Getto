@@ -19,6 +19,7 @@ mongoose.Promise = global.Promise;
 //monthlySales();
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
+app.use('/policy_files', express.static('policy_files'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.text());
 

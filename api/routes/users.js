@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const otpFunctions = require('../middleware/twilio-verification');
 const validatePhoneNumber = require('validate-phone-number-node-js');
+const aboutUs = require('../constants/about-us.json');
 
 const geocoding = require('../middleware/geocoding');
 
@@ -170,6 +171,14 @@ router.post('/support', (req, res, next) => {
     res.status(200).json({
         contact_number: numbers,
         email: emails
+    });
+});
+
+router.post('/aboutus', (req, res, next) => {
+
+    res.status(200).json({
+        message1: aboutUs.aboutUsMessage1,
+        message2: aboutUs.aboutUsMessage2,
     });
 });
 

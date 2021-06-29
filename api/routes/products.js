@@ -79,7 +79,7 @@ router.get('/hot', async (req, res, next) => {
     const categories = ["Electronics", "Fashion", "Home Appliances", "Watches", "Mobiles", "Stationery"];
     const images = [
         {
-            "image_id": "2021-05-16T08:56:11.659Zimage0.jpg",
+            "image_id": "WATCH.png",/*"2021-05-16T08:56:11.659Zimage0.jpg",*/
             "product_id": "5f533072a1a094bdc298f7dd"
         },
         {

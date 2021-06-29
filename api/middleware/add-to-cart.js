@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     var itemsArray = [];
 
     this.generateToken = function(totalPrice, totalQty, itemsList) {
-        var extras = [{Delivery: 30}, {Taxes: 20}];
+        var extras = [{Delivery: 0}, {Taxes: 0}];
         if(totalPrice > 10000) {
 
             if(cart.extras.length != 0 ) {
